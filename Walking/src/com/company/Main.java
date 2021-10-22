@@ -6,32 +6,24 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+        int goal = 10000;
 
-        String input = scan.nextLine();
-        int steps = Integer.parseInt(input);
-        int newSteps = 0;
-        while(true){
-            newSteps += steps;
-            if (newSteps >= 10000){
-                System.out.printf("Goal reached! Good job! %n");
-                System.out.printf("%d steps over the goal!", newSteps - 10000);
-                break;
-            }
-            input = scan.nextLine();
+        int steps = 0;
+        while(goal > steps){
+            String input = scan.nextLine();
             if (input.equals("Going home")){
+                steps += scan.nextInt();
                 break;
             }
-            steps = Integer.parseInt(input);
+            steps += Integer.parseInt(input);
+
 
         }
-        input = scan.nextLine();
-        steps = Integer.parseInt(input);
-        newSteps += steps;
-        if (newSteps >= 10000){
+        if (steps >= goal){
             System.out.printf("Goal reached! Good job! %n");
-            System.out.printf("%d steps over the goal!", newSteps - 10000);
-        }else{
-            System.out.printf("%d more steps to reach goal.", 10000 - newSteps);
+            System.out.printf("%d steps over the goal!", steps - goal);
+        } else{
+            System.out.printf("%d more steps to reach goal.", 10000 - steps);
         }
     }
 }
